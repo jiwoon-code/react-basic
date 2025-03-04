@@ -1,11 +1,30 @@
-import Button from "./Button";
-import styles from "./App.module.css";
+import { useState } from "react";
 
 function App() {
+  const [todo, setTodo] = useState("");
+  const [list, setList] = useState([]);
+  const onChange = (event) => setTodo(event.target.value);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (todo === "") {
+      return;
+    }
+    setList((currentArray) => [todo, ...currentArray]);
+    setTodo("");
+  };
+
   return (
     <div>
-      <h1 className={styles.title}>Welcome</h1>
-      <Button text={"ddd"} />
+      <h1>My To Dos({list.length})</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          onChange={onChange}
+          value={todo}
+          type="text"
+          placeholder="Write to do"
+        />
+        <button>Add To Do</button>
+      </form>
     </div>
   );
 }
