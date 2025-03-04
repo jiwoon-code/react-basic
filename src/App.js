@@ -9,6 +9,7 @@ function App() {
     if (todo === "") {
       return;
     }
+
     setList((currentArray) => [todo, ...currentArray]);
     setTodo("");
   };
@@ -25,6 +26,12 @@ function App() {
         />
         <button>Add To Do</button>
       </form>
+      <hr />
+      <ul>
+        {list.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))}
+      </ul>
     </div>
   );
 }
