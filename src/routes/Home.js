@@ -8,10 +8,10 @@ function Home() {
   const getMovies = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&sort_by=year`
+        `https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters?limit=50&orderBy=modified&series=24229,1058,2023`
       )
     ).json();
-    setMovies(json.data.movies);
+    setMovies(json.data.results);
     setLoading(false);
   };
   useEffect(() => {
@@ -29,11 +29,8 @@ function Home() {
             <Movie
               id={movie.id}
               key={movie.id}
-              year={movie.year}
-              rating={movie.rating}
-              coverImg={movie.medium_cover_image}
-              title={movie.title}
-              genres={movie.genres}
+              name={movie.name}
+              thumbnail={movie.thumbnail}
             />
           ))}
         </div>
