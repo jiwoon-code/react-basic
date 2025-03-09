@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./Home.module.css";
+import styles from "./Detail.module.css";
 
 function Detail() {
   const { id } = useParams();
@@ -25,7 +25,7 @@ function Detail() {
           <span>Loading...</span>
         </div>
       ) : (
-        <div>
+        <div className={styles.detail}>
           <img
             src={
               detail.thumbnail
@@ -33,57 +33,66 @@ function Detail() {
                 : "default-image-url"
             }
             alt="character-thumbnail"
+            className={styles.detail__img}
           />
-          <div>
-            <h3>{detail.name}</h3>
-            <p>comics</p>
-            <ul>
-              {detail.comics &&
-              detail.comics.items &&
-              detail.comics.items.length > 0 ? (
-                detail.comics.items.map((c, index) => (
-                  <li key={index}>{c.name}</li>
-                ))
-              ) : (
-                <p>No comics available</p>
-              )}
-            </ul>
-            <p>series</p>
-            <ul>
-              {detail.series &&
-              detail.series.items &&
-              detail.series.items.length > 0 ? (
-                detail.series.items.map((s, index) => (
-                  <li key={index}>{s.name}</li>
-                ))
-              ) : (
-                <p>No series available</p>
-              )}
-            </ul>
-            <p>stories</p>
-            <ul>
-              {detail.stories &&
-              detail.stories.items &&
-              detail.stories.items.length > 0 ? (
-                detail.stories.items.map((st, index) => (
-                  <li key={index}>{st.name}</li>
-                ))
-              ) : (
-                <p>No stories available</p>
-              )}
-            </ul>
-            <p>events</p>
-            <ul>
-              {detail.events &&
-              detail.events.items &&
-              detail.events.items.length > 0 ? (
-                detail.events.items.map((e, index) => (
-                  <li key={index}>{e.name}</li>
-                ))
-              ) : (
-                <p>No events available</p>
-              )}
-            </ul>
+          <div className={styles.detail__component}>
+            <h2 className={styles.detail__title}>{detail.name}</h2>
+            <div className={styles.detail__box}>
+              <p>Comics</p>
+              <ul className={styles.detail__box_list}>
+                {detail.comics &&
+                detail.comics.items &&
+                detail.comics.items.length > 0 ? (
+                  detail.comics.items.map((c, index) => (
+                    <li key={index}>{c.name}</li>
+                  ))
+                ) : (
+                  <p>No comics available</p>
+                )}
+              </ul>
+            </div>
+            <div className={styles.detail__box}>
+              <p>Series</p>
+              <ul className={styles.detail__box_list}>
+                {detail.series &&
+                detail.series.items &&
+                detail.series.items.length > 0 ? (
+                  detail.series.items.map((s, index) => (
+                    <li key={index}>{s.name}</li>
+                  ))
+                ) : (
+                  <p>No series available</p>
+                )}
+              </ul>
+            </div>
+            <div className={styles.detail__box}>
+              <p>Stories</p>
+              <ul className={styles.detail__box_list}>
+                {detail.stories &&
+                detail.stories.items &&
+                detail.stories.items.length > 0 ? (
+                  detail.stories.items.map((st, index) => (
+                    <li key={index}>{st.name}</li>
+                  ))
+                ) : (
+                  <p>No stories available</p>
+                )}
+              </ul>
+            </div>
+            <div className={styles.detail__box}>
+              <p>Events</p>
+              <ul className={styles.detail__box_list}>
+                {detail.events &&
+                detail.events.items &&
+                detail.events.items.length > 0 ? (
+                  detail.events.items.map((e, index) => (
+                    <li key={index}>{e.name}</li>
+                  ))
+                ) : (
+                  <p>No events available</p>
+                )}
+              </ul>
+            </div>
           </div>
         </div>
       )}

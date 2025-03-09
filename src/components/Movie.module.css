@@ -1,12 +1,13 @@
 .movie {
-  background-color: white;
+  background-color: #ed1d24;
   margin-bottom: 70px;
-  font-weight: 300;
+  font-weight: 800;
+  text-align: center;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   color: #adaeb9;
   display: grid;
-  grid-template-columns: minmax(150px, 1fr) 2fr;
+  grid-template-columns: minmax(100px, 1fr) 2fr;
   grid-gap: 20px;
   text-decoration: none;
   color: inherit;
@@ -14,41 +15,34 @@
     0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
 }
 
-.movie__img {
-  position: relative;
-  top: -50px;
-  max-width: 150px;
-  width: 100%;
-  margin-right: 30px;
-  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
-    0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+.movie__box {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+  align-items: center;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #f9f9f9;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.movie__title,
-.movie__year {
+.movie__img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.movie__title {
   margin: 0;
-  font-weight: 300;
+  font-weight: 800;
   text-decoration: none;
 }
 
 .movie__title a {
   margin-bottom: 5px;
   font-size: 24px;
-  color: #2c2c2c;
+  color: #1f1e1e;
   text-decoration: none;
-}
-
-.movie__genres {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 5px 0px;
-}
-
-.movie__genres li,
-.movie__year {
-  margin-right: 10px;
-  font-size: 14px;
 }
